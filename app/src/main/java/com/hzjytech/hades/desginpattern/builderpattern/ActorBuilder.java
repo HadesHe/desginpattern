@@ -6,7 +6,7 @@ package com.hzjytech.hades.desginpattern.builderpattern;
 
 public abstract class ActorBuilder {
 
-    protected  Actor actor=new Actor();
+    protected   Actor actor=new Actor();
 
     public abstract void buildType();
     public abstract void buildSex();
@@ -14,7 +14,12 @@ public abstract class ActorBuilder {
     public abstract void buildCostume();
     public abstract void buildHairstyle();
 
-    public Actor createActor(){
+    public  Actor construct(){
+        buildType();
+        buildSex();
+        buildFace();
+        buildCostume();
+        buildHairstyle();
         return actor;
     }
 
