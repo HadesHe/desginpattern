@@ -19,8 +19,14 @@ public abstract class ActorBuilder {
         buildSex();
         buildFace();
         buildCostume();
-        buildHairstyle();
+        if(!isBareHeader()) {
+            buildHairstyle();
+        }
         return actor;
+    }
+
+    protected boolean isBareHeader() {
+        return false;
     }
 
 }

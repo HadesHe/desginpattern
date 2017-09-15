@@ -33,4 +33,9 @@ public class DevilBuilder extends ActorBuilder {
         actor.setHairstyle("光头");
 
     }
+
+    @Override
+    protected boolean isBareHeader() {
+        return true;
+    }
 }
