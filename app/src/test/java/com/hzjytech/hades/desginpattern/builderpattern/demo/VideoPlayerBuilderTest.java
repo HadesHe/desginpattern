@@ -53,7 +53,6 @@ public class VideoPlayerBuilderTest {
             @Override
             protected void buildMenu() {
                 videoPlay.setMenu("Costum menu");
-
             }
 
             @Override
