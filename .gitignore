@@ -9,3 +9,7 @@
 /.gradle/
 /.idea/
 /build/
+/app/build/
+/gradle/
+/.gitignore
+/build.gradle
