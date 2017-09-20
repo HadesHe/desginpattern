@@ -52,4 +52,12 @@ public class OperationAdapterTest {
         System.out.println(s);
     }
 
+    @Test
+    public void testChange() throws Exception {
+        int i=10;
+        int p=i;
+        i=11;
+        p=i;
+        println("i"+i+",p"+p);
+    }
 }
