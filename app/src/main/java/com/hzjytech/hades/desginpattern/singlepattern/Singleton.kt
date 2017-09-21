@@ -1,5 +1,7 @@
 package com.hzjytech.hades.desginpattern.singlepattern
 
+import kotlin.reflect.KProperty
+
 /**
  * Created by Hades on 2017/9/18.
  */
@@ -42,6 +44,17 @@ fun main(args: Array<String>) {
     fooNullable=null
     println(fooNullable?.length)    //=>null
     println(fooNullable?.length?:-1) //=>-1
+
+
+    fun parseInt(str:String): Int? {
+        try {
+            return str.toInt()
+        } catch(e: Exception) {
+            println("One of the argument isn't Int")
+        }
+
+        return null
+    }
 
 
     /**
@@ -141,7 +154,7 @@ fun main(args: Array<String>) {
      * Data classes are a concise way to create classes that just hold data
      * The "hashCode"/"equals" and "toString" methods are automatically generated
      */
-    data class DataClassExample(val x :Int,val y:Int,val z:Int)
+data class DataClassExample(val x :Int,val y:Int,val z:Int)
     val fooData=DataClassExample(1,2,4)
     println(fooData) //=> DataClassExmaple(x=1,y=2,z=4)
 
@@ -341,3 +354,42 @@ class Pair<K,V>(val first:K,val second:V){
         return second;
     }
 }
+
+/**
+ * KeyWord By
+ */
+
+class ByExmaple{
+    val p:String by ByDelegate()
+}
+
+class ByDelegate  {
+    operator fun getValue(thisRef: Any?, property: KProperty<*>): String {
+        return "$thisRef,thank you for delegating '${property.name}' to me"
+    }
+
+    operator fun setValue(thisRef: Any?, property: KProperty<*>,value: String) {
+        println("1 $value has been assigned to ${property.name} in $thisRef")
+    }
+}
+
+/**
+ * KeyWord By lazy
+ * blockingLazy()  thread safety
+ */
+
+class LazeExample{
+    val lazyVar:String by lazy{
+        println("computed!")
+        "my lazy"
+    }
+
+
+}
+
+
+
+
+
+
+
