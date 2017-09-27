@@ -13,4 +13,22 @@ class PrinterDriverTest{
         PrinterDriver.print()
         PrinterDriver.print()
     }
+
+    @Test
+    fun testSon() {
+
+        Son().showI();
+    }
+}
+
+open class Only{
+    val i:Int=5
+}
+
+class Son: Only() {
+
+    fun showI():Unit{
+        println("your son is "+i+" years old")
+    }
+
 }

@@ -12,8 +12,8 @@ public class NormalEncryptComponentDecorator extends EncryptComponentDecorator {
     }
 
     @Override
-    public void baseEncrypt(String content) {
-        super.baseEncrypt(content);
+    public String baseEncrypt(String content) {
+        return super.baseEncrypt(content);
 
     }
 
