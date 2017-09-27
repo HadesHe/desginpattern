@@ -6,5 +6,5 @@ package com.hzjytech.hades.desginpattern.decoratorpattern.example;
 
 public abstract class EncryptComponent {
 
-    public abstract void baseEncrypt(String content);
+    public abstract String baseEncrypt(String content);
 }

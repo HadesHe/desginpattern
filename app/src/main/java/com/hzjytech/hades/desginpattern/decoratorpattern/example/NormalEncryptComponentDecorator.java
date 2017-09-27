@@ -19,12 +19,12 @@ public class NormalEncryptComponentDecorator extends EncryptComponentDecorator {
 
     @Override
     public void normalEncrypt(String content) {
-        System.out.println("NormalEncrypt"+content);
+        System.out.println(component.getClass().getSimpleName()+"NormalEncrypt"+content);
     }
 
     @Override
     public void highEncrypt(String content) {
-        System.out.println("NomalEncrypt cannot");
+        System.out.println(component.getClass().getSimpleName()+"NomalEncrypt cannot");
 
     }
 

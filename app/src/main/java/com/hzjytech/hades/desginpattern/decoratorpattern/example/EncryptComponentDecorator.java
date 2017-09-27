@@ -6,15 +6,15 @@ package com.hzjytech.hades.desginpattern.decoratorpattern.example;
 
 public abstract class EncryptComponentDecorator extends EncryptComponent {
 
-    private final EncryptComponent component;
+    protected  EncryptComponent component;
 
     public EncryptComponentDecorator(EncryptComponent component){
         this.component=component;
     }
 
     @Override
-    public void baseEncrypt(String content) {
-        component.baseEncrypt(content);
+    public String baseEncrypt(String content) {
+        return component.baseEncrypt(content);
     }
 
     public abstract void normalEncrypt(String content);

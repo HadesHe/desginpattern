@@ -12,20 +12,21 @@ public class HighEncryptComponentDecorator extends EncryptComponentDecorator {
     }
 
     @Override
-    public void baseEncrypt(String content) {
-        super.baseEncrypt(content);
+    public String baseEncrypt(String content) {
+        return super.baseEncrypt(content);
 
     }
 
     @Override
     public void normalEncrypt(String content) {
-        System.out.println("HighEncrypt cannot");
+
+        System.out.println(component.getClass().getSimpleName()+"HighEncrypt "+super.baseEncrypt(content));
     }
 
     @Override
     public void highEncrypt(String content) {
 
-        System.out.println("HighEncrypt"+content);
+        System.out.println(component.getClass().getSimpleName()+"HighEncrypt"+content);
 
     }
 
