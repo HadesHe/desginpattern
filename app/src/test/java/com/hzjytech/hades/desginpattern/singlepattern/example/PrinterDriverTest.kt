@@ -32,3 +32,4 @@ class Son: Only() {
     }
 
 }
+
