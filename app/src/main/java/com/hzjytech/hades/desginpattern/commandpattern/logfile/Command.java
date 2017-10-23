@@ -4,6 +4,7 @@ import com.hzjytech.hades.desginpattern.logutil.LogOut;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Created by zhanghehe on 2017/10/22.
@@ -165,6 +166,7 @@ class FileUtil{
 
     public static ArrayList readCommands(){
 
+        return new ArrayList();
     }
 
 
