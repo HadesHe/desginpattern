@@ -62,6 +62,40 @@ class TextBox extends Component{
 
 }
 
+class Label extends Component{
+    public void update(){
+        LogOut.println("Label change");
+    }
+}
+
+class SubMediatorPattern extends MediatorPattern{
+    public Label label;
+
+    public void componentChange(Component component){
+
+        if(component==addButton){
+            LogOut.println("add Button");
+            list.update();
+            cb.update();
+            userNameTextBox.update();
+            label.update();
+
+        }else if(component==list){
+            LogOut.println("select list");
+            cb.select();
+            userNameTextBox.setText();
+
+
+        }else if(component==cb){
+            LogOut.println("CombBox");
+            cb.select();
+            userNameTextBox.setText();
+
+        }
+
+    }
+}
+
 
 public class MediatorPattern extends Mediator{
 

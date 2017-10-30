@@ -13,18 +13,22 @@ public class MediatorPatternTest {
 
     @Test
     public void testMediatorPattern() throws Exception {
-        MediatorPattern mediatorPattern=new MediatorPattern();
+        SubMediatorPattern mediatorPattern=new SubMediatorPattern();
 
         Button addBt=new Button();
         List list=new List();
         ComboBox cb=new ComboBox();
         TextBox userTb=new TextBox();
+        Label label=new Label();
 
         addBt.setMediator(mediatorPattern);
         list.setMediator(mediatorPattern);
         cb.setMediator(mediatorPattern);
         userTb.setMediator(mediatorPattern);
+        label.setMediator(mediatorPattern);
 
+
+        mediatorPattern.label=label;
         mediatorPattern.addButton=addBt;
         mediatorPattern.list=list;
         mediatorPattern.cb=cb;
