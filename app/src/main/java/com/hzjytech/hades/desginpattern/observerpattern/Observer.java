@@ -65,7 +65,7 @@ class Player implements Observer{
 
     @Override
     public void help() {
-        LogOut.println("Hold on"+this.name+" help you");
+        LogOut.println("There is someone go die, oh it's "+this.name+", be happy");
     }
 
     @Override
@@ -78,11 +78,20 @@ class Player implements Observer{
 class ConcreteAllyControlCenter extends AllyControlCenter{
 
     public ConcreteAllyControlCenter(String allyName){
+        LogOut.println(allyName+" construct");
+        LogOut.println("---------------");
+        this.allyName=allyName;
 
     }
 
     @Override
     public void notifyObserver(String name) {
+        LogOut.println(this.allyName+" notify "+name);
+        for (Observer observer : player) {
+            if(observer.getName().equalsIgnoreCase(name)){
+                observer.help();
+            }
+        }
 
     }
 }
