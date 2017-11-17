@@ -14,7 +14,7 @@ public class Account {
     public Account(String owner, double balance) {
         this.owner = owner;
         this.balance = balance;
-        this.state=new NormalState(state);
+        this.state=new NormalState(this);
         LogOut.println(this.owner+" start Account"+ balance);
         LogOut.println("------------------------------");
     }
@@ -65,8 +65,8 @@ abstract class AccountState{
 
 class NormalState extends AccountState{
 
-    public NormalState(AccountState account) {
-        this.acc=account.acc;
+    public NormalState(Account account) {
+        this.acc=account;
     }
 
     @Override
@@ -129,7 +129,7 @@ class OverdraftState extends AccountState{
     @Override
     public void stateCheck() {
         if(acc.getBalance()>0){
-            acc.setState(new NormalState(this));
+            acc.setState(new NormalState(acc));
         }else if(acc.getBalance()==-2000){
             acc.setState(new RestrictedState(this));
         }else if(acc.getBalance()<-2000){
@@ -166,7 +166,7 @@ class RestrictedState extends AccountState{
     @Override
     public void stateCheck() {
         if(acc.getBalance()>0){
-            acc.setState(new NormalState(this));
+            acc.setState(new NormalState(acc));
         }else if(acc.getBalance()>-2000){
             acc.setState(new OverdraftState(this));
         }
