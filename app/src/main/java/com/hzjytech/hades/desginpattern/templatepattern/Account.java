@@ -21,7 +21,7 @@ abstract class Account {
 
     public abstract void calculateInterest();
 
-    public void display(){
+    private void display(){
         LogOut.println("display");
     }
 
@@ -39,7 +39,15 @@ class CurrentAccount extends Account{
 
     @Override
     public void calculateInterest() {
-        LogOut.println("calculateInterest by year");
+        LogOut.println("calculate Interest by live year");
 
+    }
+}
+
+class SavingAccount extends Account{
+
+    @Override
+    public void calculateInterest() {
+        LogOut.println("calculate Interest by stick year");
     }
 }
