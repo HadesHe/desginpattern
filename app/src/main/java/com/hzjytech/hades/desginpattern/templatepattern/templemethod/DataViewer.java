@@ -16,6 +16,35 @@ abstract class DataViewer {
 
     public abstract void displayData();
 
-    public
+    public boolean isNotXmlData(){
+        return true;
+    }
 
+    public void process(){
+        getData();
+        if(isNotXmlData()){
+            convertData();
+        }
+        displayData();
+    }
+}
+
+class XmlDataView extends DataViewer {
+
+    @Override
+    public void getData() {
+        LogOut.println("Get Data from XML");
+
+    }
+
+    @Override
+    public void displayData() {
+        LogOut.println("Bar graph display data");
+
+    }
+
+    @Override
+    public boolean isNotXmlData() {
+        return false;
+    }
 }

@@ -9,14 +9,14 @@ public class Switch {
 
     private String name;
 
-    public Switch(String name){
-        this.name=name;
-        onState=new OnState();
-        offState=new OffState();
-        this.state=onState;
-    }
-
-    public void setState
+//    public Switch(String name){
+//        this.name=name;
+//        onState=new OnState();
+//        offState=new OffState();
+//        this.state=onState;
+//    }
+//
+//    public void setState
 }
 
 
