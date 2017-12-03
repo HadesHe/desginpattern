@@ -1,1 +1,1 @@
-include ':app', ':kedditbystep'
+include ':app'
