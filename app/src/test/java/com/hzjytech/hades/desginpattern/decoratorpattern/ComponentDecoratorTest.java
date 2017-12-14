@@ -18,4 +18,9 @@ public class ComponentDecoratorTest {
         componentSB.display();
         componentBB.display();
     }
+
+    @Test
+    public void test() throws Exception {
+        System.out.println("Beat small bro");
+    }
 }

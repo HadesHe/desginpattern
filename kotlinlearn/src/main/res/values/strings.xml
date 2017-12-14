@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">KotlinLearn</string>
+    <string name="edit_contact">Edit</string>
+    <string name="new_contact">New</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+</resources>

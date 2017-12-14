@@ -30,13 +30,11 @@ public class ActorControllerTest {
             @Override
             public void buildSex() {
                 actor.setSex("男性");
-
             }
 
             @Override
             public void buildFace() {
                 actor.setFace("超级帅气");
-
             }
 
             @Override
