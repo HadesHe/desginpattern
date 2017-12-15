@@ -18,6 +18,46 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    flavorDimensions "api","mode"
+
+
+    productFlavors{
+
+
+        demo{
+            dimension "mode"
+        }
+
+        full{
+            dimension "mode"
+        }
+
+        minApi19{
+            dimension "api"
+            minSdkVersion 19
+        }
+
+        minApi23{
+            dimension "api"
+            minSdkVersion 23
+        }
+    }
+
+//    variantFilter{
+//        variant ->
+//            def names=variant.flavors*.name
+//            if(names.contains("minApi23")){
+//                setIgnore(true)
+//            }
+//
+//    }
+
+    sourceSets{
+        debug{
+            res.srcDirs=['debug/res']
+        }
+    }
 }
 
 dependencies {
