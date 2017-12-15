@@ -15,6 +15,6 @@ public class MainActivity extends AppCompatActivity {
 
         Log.d("----","-----"+DeviceIdManager.getID(MainActivity.this,1)+"----"+DeviceIdManager.getID(MainActivity.this,2)+"------"+DeviceIdManager.getID(MainActivity.this,3));
 
-        Toast.makeText(MainActivity.this,DeviceIdManager.getID(MainActivity.this,3),Toast.LENGTH_LONG).show();
+        Toast.makeText(MainActivity.this,getString(R.string.app_name),Toast.LENGTH_LONG).show();
     }
 }

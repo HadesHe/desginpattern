@@ -16,8 +16,102 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+
         }
     }
+
+    flavorDimensions "MachineType","DrinkTemp","MaterialType","Free","SerialPort","Server"
+
+
+    productFlavors{
+
+        C{
+            dimension "MachineType"
+            buildConfigField("Boolean", "SERIALPORT_SYSNC", "true");
+            buildConfigField("Boolean", "DESK", "false")
+        }
+
+        D{
+            dimension "MachineType"
+            buildConfigField("Boolean", "SERIALPORT_SYSNC", "true");
+            buildConfigField("Boolean", "DESK", "true");
+        }
+
+        S{
+            dimension "MachineType"
+            buildConfigField("Boolean", "SERIALPORT_SYSNC", "false");
+        }
+
+        B{
+            dimension "DrinkTemp"
+        }
+
+//        H{
+//            dimension "DrinkTemp"
+//        }
+
+        FW{
+            dimension "MaterialType"
+            buildConfigField("String", " MACHINETYPE", "\"seriflux\"");
+        }
+
+//        PN{
+//            dimension "MaterialType"
+//        }
+
+        F{
+            dimension "Free"
+        }
+
+        P{
+            dimension "Free"
+        }
+
+        S2{
+            dimension "SerialPort"
+            buildConfigField("Boolean", "TTYS2", "true");
+        }
+
+        S3{
+            dimension "SerialPort"
+            buildConfigField("Boolean", "TTYS2", "false");
+        }
+
+        O{
+            dimension "Server"
+            buildConfigField("String", "BUILD_SERVER", "\"www.baidu.com\"")
+
+        }
+
+        T{
+            dimension "Server"
+            buildConfigField("String", "BUILD_SERVER", "\"www.test.com\"")
+        }
+
+        T{
+            dimension "Server"
+            buildConfigField("String", "BUILD_SERVER", "\"local:9080\"")
+        }
+
+
+
+
+    }
+
+    applicationVariants.all { variant ->
+        variant.getPackageApplication().outputDirectory = new File(project.rootDir.absolutePath + "/apk")
+        variant.outputs.all {
+            outputFileName = "jingmama_V${variant.versionName}${variant.productFlavors[0].name}${variant.productFlavors[1].name}${variant.productFlavors[2].name}${variant.productFlavors[3].name}${variant.productFlavors[4].name}${variant.productFlavors[5].name}}.apk"
+        }
+
+    }
+
+//    sourceSets{
+//        debug{
+//            res.srcDirs=['debug/res']
+//        }
+//    }
 }
 
 dependencies {

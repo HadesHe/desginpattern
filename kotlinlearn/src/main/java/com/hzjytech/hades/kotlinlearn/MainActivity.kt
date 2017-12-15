@@ -77,15 +77,15 @@ class MainActivity : AppCompatActivity(), TextWatcher {
         rcView.addItemDecoration(DividerItemDecoration(this,DividerItemDecoration.VERTICAL))
         rcView.adapter=mAdapter
 
-        val helper=ItemTouchHelper(
-                object : ItemTouchHelper.SimpleCallback(0,
-                ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
-                    override fun onMove(recyclerView: RecyclerView?, viewHolder: RecyclerView.ViewHolder?, target: RecyclerView.ViewHolder?): Boolean {
-                        return false
-                    }
-                } {
-
-        })
+//        val helper=ItemTouchHelper(
+//                object : ItemTouchHelper.SimpleCallback(0,
+//                ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
+//                    override fun onMove(recyclerView: RecyclerView?, viewHolder: RecyclerView.ViewHolder?, target: RecyclerView.ViewHolder?): Boolean {
+//                        return false
+//                    }
+//                } {
+//
+//        })
 
     }
 
