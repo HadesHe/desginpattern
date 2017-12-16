@@ -12,7 +12,5 @@
 /app/build/
 /gradle/
 /.gitignore
-/build.gradle
-/app/build.gradle
 /gradle/wrapper/gradle-wrapper.jar
 /gradle/wrapper/gradle-wrapper.properties

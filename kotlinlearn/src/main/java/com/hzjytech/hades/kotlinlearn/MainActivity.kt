@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.design.widget.FloatingActionButton
 import android.support.v7.app.AlertDialog
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.RecyclerView
@@ -62,10 +63,16 @@ class MainActivity : AppCompatActivity(), TextWatcher {
 
         mAdapter=ContactsAdapter(mContacts)
 
-        val toolBar = findViewById<Toolbar>(R.id.toolBar)
-        setSupportActionBar(toolBar)
+//        val toolBar = findViewById<Toolbar>(R.id.toolBar)
+//        setSupportActionBar(toolBar)
 
         setupRecyclerView()
+
+
+        val fab=findViewById<FloatingActionButton>(R.id.fab)
+        fab.setOnClickListener{showAddContactDialog(-1)}
+
+
 
 
     }
@@ -77,15 +84,23 @@ class MainActivity : AppCompatActivity(), TextWatcher {
         rcView.addItemDecoration(DividerItemDecoration(this,DividerItemDecoration.VERTICAL))
         rcView.adapter=mAdapter
 
-//        val helper=ItemTouchHelper(
-//                object : ItemTouchHelper.SimpleCallback(0,
-//                ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
-//                    override fun onMove(recyclerView: RecyclerView?, viewHolder: RecyclerView.ViewHolder?, target: RecyclerView.ViewHolder?): Boolean {
-//                        return false
-//                    }
-//                } {
-//
-//        })
+        val helper=ItemTouchHelper(
+                object:ItemTouchHelper.SimpleCallback(0,
+                        ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT){
+                    override fun onMove(recyclerView: RecyclerView?, viewHolder: RecyclerView.ViewHolder?, target: RecyclerView.ViewHolder?): Boolean {
+                        return false
+                    }
+
+                    override fun onSwiped(viewHolder: RecyclerView.ViewHolder?, direction: Int) {
+                        val position= viewHolder!!.adapterPosition
+                        mContacts.removeAt(position)
+                        mAdapter.notifyItemRemoved(position)
+                        saveContacts()
+
+                    }
+                })
+
+        helper.attachToRecyclerView(rcView)
 
     }
 
