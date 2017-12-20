@@ -1,6 +1,7 @@
 package com.hzjytech.hades.kotlinlearn
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -70,7 +71,9 @@ class MainActivity : AppCompatActivity(), TextWatcher {
 
 
         val fab=findViewById<FloatingActionButton>(R.id.fab)
-        fab.setOnClickListener{showAddContactDialog(-1)}
+        fab.setOnClickListener{
+            startActivity(Intent(this,FunctionActivity::class.java))
+        }
 
 
 
