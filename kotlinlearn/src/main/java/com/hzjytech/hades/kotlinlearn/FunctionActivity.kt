@@ -41,7 +41,6 @@ class FunctionAdapter(val lst: List<String>) : RecyclerView.Adapter<FunctionAdap
     override fun onBindViewHolder(holder: FunctionViewHoder, position: Int) {
         holder.tvFunctionItemName.setText(lst.get(position))
         holder.tvFunctionItemName.setOnClickListener{
-            Intent(holder.tvFunctionItemName.context,)
             Toast.makeText(holder.itemView.context,lst[position],Toast.LENGTH_SHORT).show()
         }
     }
